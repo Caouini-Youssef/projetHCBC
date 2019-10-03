@@ -10,6 +10,18 @@
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink)
         );
 
+        $req = $dbLink->query("SELECT mail FROM user WHERE mail LIKE '$mail'");
+        if($req == FALSE) {
+            die ('Erreur SQL');
+        }
+        $posts = $req->fetch_all(PDO::FETCH_ASSOC);
+
+        if($posts != NULL) {
+            echo 'E-Mail déjà utilisée !';
+            echo '<meta http-equiv="refresh" content="5;URL=inscription.php" />';
+            exit;
+        }
+
         $mdpsha = sha1($mdp);
 
         $query = 'INSERT INTO user (date, mail, civilite, mdp, nom) VALUES 
@@ -34,16 +46,22 @@
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink)
         );
 
-        $query = "SELECT mail FROM user WHERE mail LIKE '$mail'";
-        $mdpBD = "SELECT mdp FROM user WHERE mail=" . $mail;
-        mysqli_query($dbLink, $query    );
-        echo $query;
-        if ($query == $mail) {
-            $ver = sha1(mysqli_query($dbLink, $query));
-            if ($ver == $mdp) {
-                echo 'Connexion établie !' . PHP_EOL . 'Redirection...';
+        $query = $dbLink->query("SELECT mail, mdp FROM user WHERE mail LIKE '$mail'");
+        if($query == FALSE) {
+            die ('Erreur SQL');
+        }
+        $posts = $query->fetch_all(PDO::FETCH_ASSOC);
+
+        $mailBD = $posts[0][0];
+        $mdpBD = $posts [0][1];
+
+        if ($mailBD == $mail) {
+            $ver = sha1($mdp);
+            if ($ver == $mdpBD) {
+                echo 'Connexion réussite !';
             }
-            else echo 'mot de passe incorrect !';
-        } else echo 'Identifiant incorrect !';
+            else echo 'Identifiant ou MDP incorrect';
+        }
+        else echo 'Identifiant ou MDP incorrect';
     }
 ?>

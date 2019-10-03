@@ -1,6 +1,6 @@
 <?php
     require 'fonctions.php';
-    start_page('Accueil', 'CSS/index.css');
+    start_page('Accueil', 'css/index.css');
 ?>
 
     <header>
@@ -36,11 +36,11 @@
                 <input placeholder="Rechercher" type="search">
             </form>
 
-            <ul class="liste">
-                <li>Discussion</li>
-                <li>Discussion_1</li>
-                <li>Discussion_2</li>
-            </ul>
+            <select class="liste" size="3">
+                <option>cerise</option>
+                <option>orange</option>
+                <option>pomme</option>
+            </select>
 
         </section>
 

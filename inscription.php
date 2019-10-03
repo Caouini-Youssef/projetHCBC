@@ -1,6 +1,6 @@
 <?php
     require 'fonctions.php';
-    start_page('Inscription', 'CSS/formulaire.css');
+    start_page('Inscription', 'css/formulaire.css');
 ?>
 
 <header>

@@ -1,6 +1,6 @@
 <?php
     require 'fonctions.php';
-    start_page('Connexion', 'CSS/formulaire.css');
+    start_page('Connexion', 'css/formulaire.css');
 ?>
 
 <header>
