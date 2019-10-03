@@ -1,0 +1,127 @@
+
+/* ENTETE DE LA PAGE*/
+
+header
+{
+    background-color: #375280;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.boxMenu nav
+{
+    align-items: center;
+}
+
+.boxMenu ul
+{
+    display: flex;
+    float: right;
+    margin-right: 5rem;
+    padding: 0.3rem;
+
+
+}
+
+.boxMenu li
+{
+    margin: 5px;
+    padding: 5px;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.boxFreeNote
+{
+    width: 50%;
+    text-align: center;
+}
+
+.boxMenu
+{
+    width: 50%;
+
+
+}
+
+.boxFreeNote h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.freenote
+{
+    color: navajowhite;
+    text-align: center;
+    font-family: Arial;
+
+
+}
+
+
+body
+{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: rgba(217, 223, 235, 0.884);
+}
+.valide
+{
+    text-align: center;
+}
+
+.presentation
+{
+    display: flex;
+    background-color: #BAD4FF;
+    justify-content: space-around;
+}
+
+.presentation p
+{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: black;
+    text-align: justify;
+    width: 300px;
+    margin-top: 2rem;
+    border-right: solid;
+    border-color: #375280;
+    padding-right: 2rem;
+}
+
+.corps
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.liste
+{
+    list-style: none;
+    border: solid #375280;
+    padding: 1rem;
+    background-color: white;
+    width: 10rem;
+    height: auto;
+}
+
+li a:hover {
+    background-color: #BAD4FF;
+    color: #375280;
+}
+
+a
+{
+    padding: 2rem;
+}
