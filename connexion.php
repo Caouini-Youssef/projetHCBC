@@ -3,7 +3,8 @@
     start_page('Connexion', 'css/formulaire.css');
 ?>
 
-<header>
+<header class="boxMenu"  >
+    <?php home(); ?>
     <p> <h1> CONNEXION </h1></p>
 </header>
 
