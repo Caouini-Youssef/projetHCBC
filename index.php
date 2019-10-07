@@ -5,7 +5,7 @@ start_page('Accueil', 'css/index.css');
 
     <header>
         <div class="boxFreeNote">
-            <h1> FreeNote </h1>
+           <?php home() ?>
         </div>
         <div class="boxMenu">
             <nav>

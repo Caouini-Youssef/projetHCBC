@@ -1,51 +1,68 @@
-
 /* HEADER */
 
 header
 {
     background-color: #375280;
     display: flex;
+    height: 80px;
+}
+
+.boxMenu
+{
+    width: 50%;
 }
 
 .boxMenu ul
 {
-    display: flex;
-    float: right;
-    align-content: center;
-    padding: 0.3rem;
-    margin-right: 5rem;
+    margin: 0px;
+    float:right;
+    padding-right: 2rem;
+    height: 80px;
+
 }
 
 .boxMenu li
 {
     margin: 5px;
-    padding: 5px;
     text-decoration: none;
     list-style-type: none;
     font-family: Arial, Helvetica, sans-serif;
-
-    padding-left: 2rem;
-    padding-right: 2rem;
+    float: right;
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
+.boxMenu a
+{
+    padding-top: 26px;
+    padding-bottom: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
 header a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 
+
 .boxFreeNote
 {
     width: 50%;
+
+
     text-align: center;
+    display: flex;
+    justify-content: left;
 }
 
-.boxMenu
-{
-    width: 50%;
-
-
+.boxFreeNote img{
+    align-content: center;
+    width: 180px;
+    height: 80px;
 }
+
 
 .boxFreeNote h1{
     color: white;
@@ -56,13 +73,15 @@ header a {
 {
     color: navajowhite;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
+    font-family: Arial;
 
+
+}
 
 li a:hover {
     background-color: #BAD4FF;
     color: #375280;
+
 }
 
 
@@ -70,7 +89,9 @@ li a:hover {
 /* BODY ET PRESENTATION GENERALE */
 body
 {
-    margin: 0rem;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
     background-color: rgba(217, 223, 235, 0.884);
 }
 
@@ -112,6 +133,7 @@ body
 
 #conteneur_presentation .presentation p
 {
+    text-align: center;
     text-align: justify;
     width: 300px;
     margin-top: 1rem;
