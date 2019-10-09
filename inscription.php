@@ -1,14 +1,15 @@
 <?php
     require 'fonctions.php';
-    start_page('Inscription', 'CSS/formulaire.css');
+    start_page('Inscription', 'css/formulaire.css');
 ?>
 
 <header>
-<p> <h1> INSCRIPTION </h1></p>
+    <?php home(); ?>
+    <h1> INSCRIPTION </h1>
 </header>
 
 
-<form class="formulaire" action="data_processing.php" method="post">
+<form class="formulaire" action="inscription_processing.php" method="post">
     <select class="box" name="civ">
         <option value=""> --Civilité-- </option>
         <option value="fem"> Femme </option>

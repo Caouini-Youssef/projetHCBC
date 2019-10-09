@@ -1,56 +1,68 @@
-
-/* ENTETE DE LA PAGE*/
+/* HEADER */
 
 header
 {
     background-color: #375280;
     display: flex;
-    justify-content: flex-start;
+    height: 80px;
 }
 
-.boxMenu nav
+.boxMenu
 {
-    align-items: center;
+    width: 50%;
 }
 
 .boxMenu ul
 {
-    display: flex;
-    float: right;
-    margin-right: 5rem;
-    padding: 0.3rem;
-
+    margin: 0px;
+    float:right;
+    padding-right: 2rem;
+    height: 80px;
 
 }
 
 .boxMenu li
 {
     margin: 5px;
-    padding: 5px;
     text-decoration: none;
     list-style-type: none;
     font-family: Arial, Helvetica, sans-serif;
-
+    float: right;
+    padding-top: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
+.boxMenu a
+{
+    padding-top: 26px;
+    padding-bottom: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
 header a {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
 }
 
+
 .boxFreeNote
 {
     width: 50%;
+
+
     text-align: center;
+    display: flex;
+    justify-content: left;
 }
 
-.boxMenu
-{
-    width: 50%;
-
-
+.boxFreeNote img{
+    align-content: center;
+    width: 180px;
+    height: 80px;
 }
+
 
 .boxFreeNote h1{
     color: white;
@@ -66,7 +78,15 @@ header a {
 
 }
 
+li a:hover {
+    background-color: #BAD4FF;
+    color: #375280;
 
+}
+
+
+
+/* BODY ET PRESENTATION GENERALE */
 body
 {
     margin-top: 0px;
@@ -74,36 +94,78 @@ body
     margin-right: 0px;
     background-color: rgba(217, 223, 235, 0.884);
 }
-.valide
-{
-    text-align: center;
-}
 
 .presentation
 {
-    display: flex;
-    background-color: #BAD4FF;
-    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.presentation p
+/* PRESENTATION DU SITE */
+
+#conteneur_presentation
 {
+
+    padding-top : 20px;
+    background-color: #BAD4FF;
+}
+
+#conteneur_presentation .presentation
+{
+    display: flex;
+
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+
     font-family: Arial, sans-serif;
-    text-align: center;
     color: black;
+}
+
+#conteneur_presentation .presentation h2
+{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#conteneur_presentation .presentation p
+{
+    text-align: center;
     text-align: justify;
     width: 300px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-right: solid;
     border-color: #375280;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+
     padding-right: 2rem;
+
 }
 
-.corps
+/* #################### */
+
+/* CORPS DE LA PAGE */
+
+#corps
+{
+    padding-top: 20px;
+}
+
+#corps .presentation
 {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.search
+{
+    margin-bottom: 3rem;
 }
 
 .liste
@@ -114,14 +176,10 @@ body
     background-color: white;
     width: 10rem;
     height: auto;
+    size: 3rem;
 }
 
-li a:hover {
-    background-color: #BAD4FF;
-    color: #375280;
-}
 
-a
-{
-    padding: 2rem;
-}
+/* PIED DE PAGE */
+
+/* ########### */

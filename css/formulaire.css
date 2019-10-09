@@ -2,8 +2,21 @@ header
 {
     background-color: #375280;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+header h1
+{
+    margin: auto;
+    padding-right: 11rem;
+}
+
+header a img
+{
+    height: 80px;
+    width: 180px;
+    float: left;
 }
 
 h1
