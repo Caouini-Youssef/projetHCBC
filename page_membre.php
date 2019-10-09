@@ -11,7 +11,16 @@
         <?php home() ?>
     </div>
     <div class="boxMenu">
-        <p> <?php echo $nom ?> </p>
+        <ul id="menu-accordeon">
+            <li><a href="#"><?php echo $nom ?></a>
+                <ul>
+                    <li><a href="#">lien sous menu 1</a></li>
+                    <li><a href="#">lien sous menu 1</a></li>
+                    <li><a href="#">lien sous menu 1</a></li>
+                    <li><a href="#">lien sous menu 1</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </header>
 
