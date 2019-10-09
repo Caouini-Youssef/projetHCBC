@@ -1,6 +1,5 @@
 <?php
 
-
 class message
 {
     private $contenuMessage;

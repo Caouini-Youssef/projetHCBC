@@ -216,29 +216,57 @@ body
 #corps
 {
     padding-top: 20px;
+    border: solid grey;
 }
 
-#corps .presentation
+/* LISTE DES CONVERSTATIONS */
+
+.boxRecherche
 {
+    float: left;
+    height: 550px;
+    width: 35%;
+}
+
+.boxBarRecherche
+{
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.search
+#searchBar
 {
-    margin-bottom: 3rem;
+    text-decoration-style: dashed;
+}
+
+/* Liste discussion contient toutes les conversations */
+.boxListeDiscussion
+{
+    
+    border-top: solid gray;
+    width: 100%;
+    height: 100%;
 }
 
 .liste
 {
     list-style: none;
-    border: solid #375280;
     padding: 1rem;
     background-color: white;
-    width: 10rem;
-    height: auto;
-    size: 3rem;
+    width: 100%;
+    height: 100%;
+
+}
+
+/* HISTORIQUE DES CONVERSATIONS */
+
+.boxMessage
+{
+    float: right;
+    width: 65%;
+    height: 550px; overflow-y: scroll;
 }
 
 

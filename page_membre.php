@@ -3,8 +3,9 @@
     $nom = $_SESSION['nom'];
     $mdp = $_SESSION['mdp'];
     require 'fonctions.php';
+    require 'discussion.php';
     if ($nom == NULL) {
-        echo 'Vous n\'êtes pas connecté !' . PHP_EOL . 'Redirection...' .'<meta http-equiv="refresh" content="3;URL=connexion.php" />';
+        echo 'Vous n\'êtes pas connecté !' . PHP_EOL . 'Redirection...'.'<meta http-equiv="refresh" content="3;URL=connexion.php" />';
         die;
     }
     start_page('Bienvenue !', 'css/index.css');
@@ -16,6 +17,7 @@
     </div>
     <div class="boxMenuDeroulant">
         <ul id="menu-accordeon">
+            <li> <a href="new_discussion.php"> Nouvelle discussion </a> </li>
             <li><a href="#"><?php echo $nom ?></a>
                 <ul>
                     <li><a href="#">Profil</a></li>
@@ -50,9 +52,7 @@
 
         <label>
             <select class="liste" size="3">
-                <option>cerise</option>
-                <option>orange</option>
-                <option>pomme</option>
+                <?php afficherListeDiscussions(); ?>
             </select>
         </label>
     </div>
