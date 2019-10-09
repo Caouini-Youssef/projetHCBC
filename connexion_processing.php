@@ -12,7 +12,7 @@
     }
     else echo 'Bouton non géré !';
 
-    $verify = connexion($mail, $mdp);
 
+    connexion($mail, $mdp);
 
     end_page();

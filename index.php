@@ -48,6 +48,7 @@
                     <option>orange</option>
                     <option>pomme</option>
                 </select>
+                <?php afficherDiscussion() ?>
             </label>
         </div>
     </section>

@@ -3,6 +3,10 @@
     $nom = $_SESSION['nom'];
     $mdp = $_SESSION['mdp'];
     require 'fonctions.php';
+    if ($nom == NULL) {
+        echo 'Vous n\'êtes pas connecté !' . PHP_EOL . 'Redirection...' .'<meta http-equiv="refresh" content="3;URL=connexion.php" />';
+        die;
+    }
     start_page('Bienvenue !', 'css/index.css');
 ?>
 
@@ -10,8 +14,15 @@
     <div class="boxFreeNote">
         <?php home() ?>
     </div>
-    <div class="boxMenu">
-        <p> <?php echo $nom ?> </p>
+    <div class="boxMenuDeroulant">
+        <ul id="menu-accordeon">
+            <li><a href="#"><?php echo $nom ?></a>
+                <ul>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Quitter</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </header>
 

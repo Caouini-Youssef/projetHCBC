@@ -1,6 +1,4 @@
 <?php
-
-
 class discussion
 {
     private $titre;
@@ -73,3 +71,6 @@ class discussion
         echo '<br />';
     }
 }
+
+?>
+
