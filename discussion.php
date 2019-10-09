@@ -72,5 +72,3 @@ class discussion
         echo '<br />';
     }
 }
-
-?>

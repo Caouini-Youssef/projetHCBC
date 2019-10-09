@@ -1,0 +1,40 @@
+header
+{
+    background-color: #375280;
+    display: flex;
+    height: 80px;
+}
+
+.boxFreeNote
+{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: left;
+}
+
+.boxFreeNote img{
+    align-content: center;
+    width: 180px;
+    height: 80px;
+}
+
+
+.boxFreeNote h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body
+{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: rgba(217, 223, 235, 0.884);
+}
+
+
+.boxMenu
+{
+    
+}
