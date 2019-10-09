@@ -25,7 +25,7 @@
                 session_start();
                 $_SESSION['nom'] = $nom;
                 $_SESSION['mdp'] = $_POST ['mdp'];
-                echo '<meta http-equiv="refresh" content="4;URL=page_membre.php" />';
+                echo '<meta http-equiv="refresh" content="2;URL=page_membre.php" />';
             }
             else {
                 echo 'Identifiant ou MDP incorrect';

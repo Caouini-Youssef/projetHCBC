@@ -30,3 +30,14 @@
         mysqli_select_db($dbLink, $dbname)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
     }
+
+    function afficherDiscussion() {
+        $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13');
+        selectDb($dbLink,'groupehcbc_projet');
+
+        $query = $dbLink->query("SELECT nom FROM discussion WHERE id = 34");
+        if($query == FALSE) {
+            die ('Erreur SQL');
+        }
+        $posts = $query->fetch_all(PDO::FETCH_ASSOC);
+    }

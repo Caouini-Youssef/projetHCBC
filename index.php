@@ -1,6 +1,6 @@
 <?php
-require 'fonctions.php';
-start_page('Accueil', 'css/index.css');
+    require 'fonctions.php';
+    start_page('Accueil', 'css/index.css');
 ?>
 
     <header>
@@ -48,10 +48,11 @@ start_page('Accueil', 'css/index.css');
                     <option>orange</option>
                     <option>pomme</option>
                 </select>
+                <?php afficherDiscussion() ?>
             </label>
         </div>
     </section>
 
 <?php
-end_page();
+    end_page();
 ?>
