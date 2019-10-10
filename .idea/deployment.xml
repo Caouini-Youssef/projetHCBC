@@ -2,17 +2,10 @@
 <project version="4">
   <component name="PublishConfigData" serverName="projethcbc" uploadOnCheckin="bb25fe45-10bf-4ada-a9de-431f512933ac">
     <serverData>
-      <paths name="alwaysdata">
+      <paths name="projethcbc">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="groupehcbc">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/www/" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
