@@ -1,12 +1,11 @@
 <?php
-
-
 class discussion
 {
     private $titre;
     private $nbMessage;
     private $dateCreation;
     private $listeUtilisateurs;
+    private $listeMessage;
 
     public function __construct($titre, $nbMessage, $dateCreation, $listeUtilisateurs)
     {
@@ -61,6 +60,44 @@ class discussion
         return $this->listeUtilisateurs;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getListeMessage()
+    {
+        return $this->listeMessage;
+    }
+
+    /**
+     * @param mixed $listeMessage
+     */
+    public function setListeMessage($listeMessage): void
+    {
+        $this->listeMessage = $listeMessage;
+    }
+
+    /**
+     * Méthode assurant l'actualisation des messages dans une discussion
+     */
+    public function actualiserMessage():void
+    {
+        $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13');
+
+        selectDb($dbLink, 'groupehcbc_projet');
+
+        // Besoin de nouvelle relation dans la base de données : Discussion clé primaire son nom et ses membres avec des messages
+        // relation message avec le message la date et l'auteur du message
+        $query = $dbLink->query("SELECT message, date, heure FROM user WHERE mail LIKE '$mail'");
+        if($query == FALSE) {
+            die ('Erreur SQL');
+        }
+        $posts = $query->fetch_all(PDO::FETCH_ASSOC);
+
+        $mailBD = $posts[0][0];
+        $mdpBD = $posts [0][1];
+        $nom = $posts [0][2];
+    }
+
     public function showDiscussion()
     {
         echo $this->getTitre();
@@ -73,3 +110,6 @@ class discussion
         echo '<br />';
     }
 }
+
+?>
+

@@ -30,3 +30,35 @@
         mysqli_select_db($dbLink, $dbname)
         or die('Erreur dans la sélection de la base : ' . mysqli_error($dbLink));
     }
+
+    function afficherListeDiscussions() {
+        $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13');
+        selectDb($dbLink,'groupehcbc_projet');
+
+        $query = $dbLink->query("SELECT nom, id FROM discussion");
+        if($query == FALSE) {
+            die ('Erreur SQL');
+        }
+        $posts = $query->fetch_all(PDO::FETCH_ASSOC);
+        for ($i = 0; $i < sizeof($posts); $i++)
+        {
+            $name = $posts[$i][0];
+            echo '<option>' . $name . '</option>';
+        }
+    }
+
+function afficherListeMessages() {
+    $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13');
+    selectDb($dbLink,'groupehcbc_projet');
+
+    $query = $dbLink->query("SELECT nom, id FROM discussion");
+    if($query == FALSE) {
+        die ('Erreur SQL');
+    }
+    $posts = $query->fetch_all(PDO::FETCH_ASSOC);
+    for ($i = 0; $i < sizeof($posts); $i++)
+    {
+        $name = $posts[$i][0];
+        echo '<option>' . $name . '</option>';
+    }
+}

@@ -10,7 +10,6 @@
         <div class="boxMenu">
             <nav>
                 <ul>
-
                     <li>
                         <a class="boxci" href="connexion.php"> Connexion </a>
                     </li>
@@ -35,20 +34,29 @@
         </div>
     </section>
 
-    <section id="corps">
-        <div class="presentation">
-
-            <form class="search">
+    <section class="corps">
+        <div class="boxRecherche">
+            <div class="boxBarRecherche">
+                <h4>Liste des conversations</h4>
                 <input placeholder="Rechercher" type="search">
-            </form>
-
-            <label>
-                <select class="liste" size="3">
-                    <option>cerise</option>
-                    <option>orange</option>
-                    <option>pomme</option>
-                </select>
-            </label>
+            </div>
+            <div class="boxListeDiscussion">
+                    <label>
+                        <select class="liste" size="3">
+                        <?php afficherListeDiscussions(); ?>
+                        </select>
+                    </label>
+            </div>
+            <div class="boxListeMessage">
+                <label>
+                    <select class="liste" size="3">
+                        <?php afficherListeMessages(); ?>
+                    </select>
+                </label>
+            </div>
+        </div>
+        <div class = "boxMessage">
+            <p>Historique de discussion</p>
         </div>
     </section>
 
