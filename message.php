@@ -4,17 +4,15 @@ class message
 {
     private $contenuMessage;
     private $auteur;
-    private $nbLike;
+    private $createur;
     private $dateAjout;
-    private $statut;
 
-    public function  __construct($contenuMessage, $auteur, $nbLike, $dateAjout, $statut)
+    public function __construct($contenuMessage, $auteur, $createur, $dateAjout)
     {
-        $this -> SetContenuMessage($contenuMessage);
-        $this -> SetAuteur($auteur);
-        $this -> SetNbLike($nbLike);
-        $this -> SetDateAjout($dateAjout);
-        $this -> SetStatut($statut);
+        $this->SetContenuMessage($contenuMessage);
+        $this->SetAuteur($auteur);
+        $this->Setcreateur($createur);
+        $this->SetDateAjout($dateAjout);
     }
 
     public function setContenuMessage($contenuMessage)
@@ -27,19 +25,14 @@ class message
         $this->auteur = $auteur;
     }
 
-    public function setNbLike($nbLike)
+    public function setcreateur($createur)
     {
-        $this->nbLike = $nbLike;
+        $this->createur = $createur;
     }
 
     public function setDateAjout($dateAjout)
     {
         $this->dateAjout = $dateAjout;
-    }
-
-    public function setStatut($statut)
-    {
-        $this->statut = $statut;
     }
 
     public function getContenuMessage()
@@ -52,9 +45,9 @@ class message
         return $this->auteur;
     }
 
-    public function getNbLike()
+    public function getcreateur()
     {
-        return $this->nbLike;
+        return $this->createur;
     }
 
     public function getDateAjout()
@@ -62,10 +55,6 @@ class message
         return $this->dateAjout;
     }
 
-    public function getStatut()
-    {
-        return $this->statut;
-    }
 
     public function showMessage()
     {
@@ -73,25 +62,9 @@ class message
         echo '<br />';
         echo $this->getAuteur();
         echo '<br />';
-        echo $this->getNbLike();
+        echo $this->getcreateur();
         echo '<br />';
         echo $this->getDateAjout();
         echo '<br />';
-        echo $this->getStatut();
-        echo '<br />';
-    }
-
-    public function modifierMessage($nouveauContenu)
-    {
-        $this->contenuMessage = $nouveauContenu;
-        $this->setStatut("modifié");
-    }
-
-    public function supprimerMessage()
-    {
-        $this->contenuMessage = null;
-        $this->setStatut('supprimé');
     }
 }
-
-?>

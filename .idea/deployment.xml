@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="alwaysdata">
+  <component name="PublishConfigData" uploadOnCheckin="bb25fe45-10bf-4ada-a9de-431f512933ac" showDialogOnRemoteDnD="false">
     <serverData>
       <paths name="alwaysdata">
         <serverdata>
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="groupehcbc" />
   </component>
 </project>

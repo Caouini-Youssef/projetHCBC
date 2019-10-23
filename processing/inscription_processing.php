@@ -1,6 +1,6 @@
 <?php
     require 'fonctions.php';
-    require 'inscription_base.php';
+    require '../base/inscription_base.php';
     start_page('Processing...', 'css/processing.css');
     echo ' <p class="red"> <strong> Redirection... </strong> </p>';
 

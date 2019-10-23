@@ -1,65 +1,49 @@
 <?php
-    require 'fonctions.php';
-    start_page('Accueil', 'css/index.css');
-?>
 
-    <header>
-        <div class="boxFreeNote">
-           <?php home() ?>
-        </div>
-        <div class="boxMenu">
-            <nav>
-                <ul>
-                    <li>
-                        <a class="boxci" href="connexion.php"> Connexion </a>
-                    </li>
-                    <li>
-                        <a class="boxci" href="inscription.php"> Inscription </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section id="conteneur_presentation">
-        <div class="presentation">
-            <h2>Un réseau social d’un nouveau genre</h2>
-            <p>
-                L’objectif est très simple et pourtant les possibilités sont infinies !
-                Le jeu consiste à créer des fils de discussions à partir de message participatif écrit par les utilisateurs.
-            </p>
-            <p>
-                Chaque joueur pourra ajouter un ou deux mots qui seront placés en fin de phrase.
-                Les membres pourront par la suite voter pour leur chat préféré !
-            </p>
-        </div>
-    </section>
+    session_start();
+    class Index {
 
-    <section class="corps">
-        <div class="boxRecherche">
-            <div class="boxBarRecherche">
-                <h4>Liste des conversations</h4>
-                <input placeholder="Rechercher" type="search">
-            </div>
-            <div class="boxListeDiscussion">
-                    <label>
-                        <select class="liste" size="3">
-                        <?php afficherListeDiscussions(); ?>
-                        </select>
-                    </label>
-            </div>
-            <div class="boxListeMessage">
-                <label>
-                    <select class="liste" size="3">
-                        <?php afficherListeMessages(); ?>
-                    </select>
-                </label>
-            </div>
-        </div>
-        <div class = "boxMessage">
-            <p>Historique de discussion</p>
-        </div>
-    </section>
+        function __construct() {}
 
-<?php
-    end_page();
-?>
+        public function getUrl () {
+            $url = '';
+            if (isset($_GET['url'])) {
+                $url = explode ('/', $_GET['url']);
+            }
+            return $url;
+        }
+
+        public function redirect() {
+            $url = $this->getUrl();
+            #home
+            if ($url[0] == 'home' || $url[0] == '') {
+                include 'controllers/CDefault.php';
+            }
+            #connexion
+            elseif ($url[0] == 'connexion') {
+                include 'controllers/CConnexion.php';
+            }
+            #inscription
+            elseif ($url[0] == 'inscription') {
+                include 'controllers/CInscription.php';
+            }
+            else echo '<h1> ERREUR 404 </h1>';
+        }
+
+    }
+
+    #Autoload les differents fichiers
+    spl_autoload_register(function ($class_name) {
+        if ($class_name[0] === 'Index')
+            require '/' . $class_name . '.php';
+        if ($class_name[0] === 'C')
+            require 'controllers/' . $class_name . '.php';
+        if ($class_name[0] === 'V')
+            require 'view/' . $class_name . '.php';
+        if ($class_name[0] === 'M')
+            require 'base/' . $class_name . '.php';
+    });
+
+    $root = new Index();
+    $root->redirect();
+

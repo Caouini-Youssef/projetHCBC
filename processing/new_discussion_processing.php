@@ -1,6 +1,6 @@
 <?php
 require 'fonctions.php';
-require 'new_discussion_base.php';
+require '../base/new_discussion_base.php';
 start_page('Processing...', 'css/index.css');
 echo 'Redirection...' . PHP_EOL;
 

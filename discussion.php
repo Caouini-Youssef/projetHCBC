@@ -3,16 +3,27 @@ class discussion
 {
     private $titre;
     private $nbMessage;
+    private $nbMessageMax;
     private $dateCreation;
     private $listeUtilisateurs;
     private $listeMessage;
 
-    public function __construct($titre, $nbMessage, $dateCreation, $listeUtilisateurs)
+    public function __construct($title, $nbMessageMax, $listeUtilisateurs)
     {
-        $this -> SetTitre($titre);
-        $this -> SetNbMessage($nbMessage);
-        $this -> SetDateCreation($dateCreation);
+        $date = date('Y-m-d');
+        $dbLink = $this->connectionBase();
+
+        $this -> setTitre($title);
+        $this -> setNbMessage(0);
+        $this->setNbMessageMax($nbMessageMax);
+        $this -> setDateCreation($date);
         $this -> setListeUtilisateurs($listeUtilisateurs);
+        $this -> setListeMessage();
+
+
+        $query = 'INSERT INTO discussion (date, nom, msgmax) VALUES 
+            ("' . $date . '", \'' . $title . '\', \'' . $nbMessageMax .'\')';
+        $this->nouvelleDiscussion($dbLink, $query);
     }
 
     public function __destruct()
@@ -77,17 +88,54 @@ class discussion
     }
 
     /**
+     * @return mixed
+     */public function getNbMessageMax()
+{
+    return $this->nbMessageMax;
+}
+
+    /**
+     * @param mixed $nbMessageMax
+     */public function setNbMessageMax($nbMessageMax): void
+    {
+        $this->nbMessageMax = $nbMessageMax;
+    }
+
+
+
+    public function connectionBase():void
+    {
+        $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13')
+        if (!$dbLink)
+        {
+            die('Erreur lors de la connection à la base de donnée');
+        }
+          selectDb($dbLink, 'groupehcbc_projet');
+        return $dbLink;
+    }
+
+    public function nouvelleDiscussion($dbLink, $query)
+    {
+        if (!($dbResult = mysqli_query($dbLink, $query)))
+        {
+            echo 'Erreur dans requête<br />';
+            // Affiche le type d'erreur.
+            echo 'Erreur : ' . mysqli_error($dbLink) . '<br/>';
+            // Affiche la requête envoyée.
+            echo 'Requête : ' . $query . '<br/>';
+            exit();
+        }
+    }
+    /**
      * Méthode assurant l'actualisation des messages dans une discussion
      */
     public function actualiserMessage():void
     {
-        $dbLink = dbConnect('mysql-groupehcbc.alwaysdata.net','191114','Zhamster13');
-
-        selectDb($dbLink, 'groupehcbc_projet');
+        $dbLink = $this->connectionBase();
 
         // Besoin de nouvelle relation dans la base de données : Discussion clé primaire son nom et ses membres avec des messages
         // relation message avec le message la date et l'auteur du message
-        $query = $dbLink->query("SELECT message, date, heure FROM user WHERE mail LIKE '$mail'");
+        $query = $dbLink->query("SELECT message, date, heure FROM discussion WHERE id LIKE '$id'");
         if($query == FALSE) {
             die ('Erreur SQL');
         }
@@ -96,6 +144,8 @@ class discussion
         $mailBD = $posts[0][0];
         $mdpBD = $posts [0][1];
         $nom = $posts [0][2];
+
+
     }
 
     public function showDiscussion()
@@ -108,6 +158,11 @@ class discussion
         echo '<br />';
         echo $this->getListeUtilisateurs();
         echo '<br />';
+    }
+
+    public function showListeDiscussion()
+    {
+
     }
 }
 

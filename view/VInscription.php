@@ -1,10 +1,10 @@
 <?php
-    require 'fonctions.php';
-    start_page('Inscription', 'css/formulaire.css');
+$function = new Vfunction ();
+$function->start_page('Accueil', '../css/formulaire.css');
 ?>
 
 <header>
-    <?php home(); ?>
+    <?php $function->home(); ?>
     <h1> INSCRIPTION </h1>
 </header>
 
@@ -25,5 +25,5 @@
 </form>
 
 <?php
-    end_page();
+    $function->end_page();
 ?>

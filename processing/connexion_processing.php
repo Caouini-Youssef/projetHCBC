@@ -1,6 +1,6 @@
 <?php
     require 'fonctions.php';
-    require 'connexion_base.php';
+    require '../base/connexion_base.php';
     start_page('Processing...', 'css/index.css');
     echo 'Redirection...' . PHP_EOL;
 
