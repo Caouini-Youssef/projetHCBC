@@ -9,7 +9,7 @@ $function->start_page('Accueil', '../css/formulaire.css');
 </header>
 
 
-<form class="formulaire" action="inscription_processing.php" method="post">
+<form class="formulaire" action="http://groupehcbc.alwaysdata.net/inscription/processing" method="post">
     <select class="box" name="civ">
         <option value=""> --Civilité-- </option>
         <option value="fem"> Femme </option>

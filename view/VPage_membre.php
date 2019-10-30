@@ -11,18 +11,10 @@
 
 <header>
     <div class="boxFreeNote">
-        <?php $function->home() ?>
+        <h1> Salut <?php echo $_SESSION['nom']; ?> !</h1>
     </div>
-    <div class="boxMenuDeroulant">
-        <ul id="menu-accordeon">
-            <li> <a href="new_discussion.php"> Nouvelle discussion </a> </li>
-            <li><a href="#"><?php echo $nom ?></a>
-                <ul>
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="http://groupehcbc.alwaysdata.net/connexion/logout">Quitter</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="boxMenu">
+        <li><a href="http://groupehcbc.alwaysdata.net/connexion/logout">Se déconnecter</a></li>
     </div>
 </header>
 

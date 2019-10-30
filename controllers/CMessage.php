@@ -18,6 +18,18 @@ class CMessage {
         else echo 'Veuillez entrer un nom valide !';
     }
 
+    public function showChat () {
+        $bdd = new MMessage();
+        $allChat = $bdd->ShowChat();
+        while ($msg = $allChat->fetch()) {
+            ?>
+            <a target="_blank" href="http://groupehcbc.alwaysdata.net/discussion/chat/<?php echo $msg['id_chat'] ?>"
+               class="chat"> <?php echo $msg['nom']; ?>( Messages max:
+                <?php echo $msg['msgmax'] . ' ) </br>'; ?> </a>
+            <?php
+        }
+    }
+
     public function newMessage()
     {
         $id_chat = $_SESSION['idChat'];
@@ -43,11 +55,24 @@ class CMessage {
         }
     }
 
+    public function UpdMsg() {
+            $id_chat = $_SESSION['idChat'];
+            $action = $_POST['action'];
+            if ($action == 'msg') {
+                if (isset($_POST['message']) AND !empty($_POST['message'])) {
+                    $SafeMessage = htmlspecialchars($_POST['message']);
+                    $bdd = new MMessage();
+                    $bdd->updateMessage($id_chat, $SafeMessage);
+                    echo '<meta http-equiv="refresh" content="0;http://groupehcbc.alwaysdata.net/discussion/chat/'. $_SESSION['idChat'] .'"/>';
+                } else echo 'Veuillez entrer votre message !';
+            }
+        }
+
     public function route () {
         $route = new Index();
         $url = $route->getUrl();
         if ($url[1] == 'new_mgs') {
-            $this->newMessage();
+            $this->UpdMsg();
         }
         elseif ($url[1] == 'new_chat') {
             $this->newChat();

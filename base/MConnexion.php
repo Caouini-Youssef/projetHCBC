@@ -1,5 +1,5 @@
 <?php
-include 'base/MdbConnect.php';
+
     class MConnexion
     {
         /** Fonction permettant la connexion d'un utilisateur */
@@ -37,25 +37,3 @@ include 'base/MdbConnect.php';
             }
         }
     }
-
-
-
-    $function = new Vfunction();
-    $function->start_page('Processing...', '../css/index.css');
-    echo 'Redirection...' . PHP_EOL;
-    $time = time()+60*60*24;
-
-    $action = $_POST['action'];
-
-    if ($action == 'mailer') {
-        $mdp = $_POST['mdp'];
-        $mail = $_POST['mail'];
-        setcookie("login", "$mail", $time, null, null, false, true);
-        setcookie("pwd", "$mdp", $time, null, null, false, true);
-    }
-    else echo 'Bouton non géré !';
-
-
-    $connect = new MConnexion();
-    $connect->connexion($mail, $mdp);
-    $function->end_page();

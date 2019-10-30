@@ -7,11 +7,10 @@
         {
             $bd = new MdbConnect();
             $dbLink = $bd->dbConnect();
-
-            $allmsg = $dbLink->query('SELECT * FROM discussion');
-            while ($msg = $allmsg->fetch()) {
+            $allChat = $dbLink->query('SELECT * FROM discussion');
+            while ($msg = $allChat->fetch()) {
                 ?>
-                <a href="http://groupehcbc.alwaysdata.net/discussion/chat/<?php echo $msg['id_chat'] ?>" class="chat"> <?php echo $msg['nom']; ?>( Messages max:
+                <a target="_blank" href="http://groupehcbc.alwaysdata.net/discussion/chat/<?php echo $msg['id_chat'] ?>" class="chat"> <?php echo $msg['nom']; ?>( Messages max:
                 <?php echo $msg['msgmax'].' ) </br>'; ?> </a>
                 <?php
             }
@@ -41,7 +40,7 @@
             $dbLink = $bd->dbConnect();
             $id_chat= $this->GetURL(2);
             $_SESSION['idChat'] = $id_chat;
-            $allMsg = $dbLink->query ('SELECT * FROM message WHERE message.id_chat="'. $id_chat . '"');
+            $allMsg = $dbLink->query ('SELECT * FROM message WHERE id_chat="'. $id_chat . '"');
             return $allMsg;
         }
 
@@ -49,12 +48,20 @@
         public function newMessage ($message, $id_chat) {
             $bd = new MdbConnect();
             if (empty(!$message)) {
-                $today = date('Y-m-d');
                 $pseudo = $_SESSION['nom'];
                 $dbLink = $bd->dbConnect();
                 $query = $dbLink->prepare('INSERT INTO message (date, texte, createur, id_chat) VALUES (?, ?, ?, ?)');
-                $query->execute(array($today, $message, $pseudo, $id_chat));
+                $query->execute(array(date('Y-m-d'), $message, $pseudo, $id_chat));
             }
             else echo 'Message non valide !';
+        }
+
+        public function updateMessage($id_chat, $NewMessage) {
+            $bd = new MdbConnect();
+            $dbLink = $bd->dbConnect();
+            $query = $dbLink->query('SELECT texte, id FROM message WHERE id_chat="'. $id_chat .'" AND etat IS NULL');
+            $result = $query->fetch();
+            $text = $result['texte'] . $NewMessage;
+            $dbLink->query('UPDATE message SET texte="'. $text .'" WHERE id = "'. $result['id'] .'"');
         }
     }
