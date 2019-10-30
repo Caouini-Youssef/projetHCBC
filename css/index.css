@@ -2,6 +2,8 @@
 
 header
 {
+    opacity: 0.8;
+    padding-bottom: 5rem;
     background-color: #375280;
     display: flex;
     height: 80px;
@@ -53,10 +55,10 @@ header
     font-size:1.2em
 }
 #menu-accordeon ul li a, #menu-accordeon li:hover li a {
-    font-size:1em
+    font-size:1em;
 }
 #menu-accordeon li:hover {
-    background: #729EBF
+    background: #729EBF;
 }
 #menu-accordeon li li:hover {
     background: #999;
@@ -71,11 +73,13 @@ header
 
 .boxMenu
 {
+
     width: 50%;
 }
 
 .boxMenu ul
 {
+    padding-top: 2.5rem;
     margin: 0px;
     float:right;
     padding-right: 2rem;
@@ -112,11 +116,10 @@ header a {
 .boxFreeNote
 {
     width: 50%;
-
-
-    text-align: center;
     display: flex;
     justify-content: left;
+    padding-top: 2rem;
+    padding-left: 2rem;
 }
 
 .boxFreeNote img{
@@ -143,7 +146,6 @@ header a {
 li a:hover {
     background-color: #BAD4FF;
     color: #375280;
-
 }
 
 
@@ -151,6 +153,8 @@ li a:hover {
 /* BODY ET PRESENTATION GENERALE */
 body
 {
+    background-image: url("https://i.imgur.com/kKBguCz.jpg");
+    background-repeat: no-repeat;
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
@@ -162,21 +166,20 @@ body
     width: 80%;
     margin: auto;
     overflow: hidden;
+    border-bottom: solid;
 }
 
 /* PRESENTATION DU SITE */
 
 #conteneur_presentation
 {
-
+    opacity: 0.8;
     padding-top : 20px;
-    background-color: #BAD4FF;
 }
 
 #conteneur_presentation .presentation
 {
     display: flex;
-
     flex-wrap: wrap;
     align-items: baseline;
     justify-content: center;
@@ -196,7 +199,6 @@ body
 #conteneur_presentation .presentation p
 {
     text-align: center;
-    text-align: justify;
     width: 300px;
     margin-top: 1rem;
     border-right: solid;
@@ -213,60 +215,88 @@ body
 
 /* CORPS DE LA PAGE */
 
-#corps
+.corps
 {
+    display: flex;
+    flex-direction: row;
     padding-top: 20px;
-    border: solid grey;
 }
 
 /* LISTE DES CONVERSTATIONS */
 
-.boxRecherche
-{
-    float: left;
-    height: 550px;
-    width: 35%;
-}
 
 .boxBarRecherche
 {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
-#searchBar
+input[type=search]
 {
-    text-decoration-style: dashed;
+    border: 2px solid #375280;
+    border-radius: 8px;
+    background-color: rgba(169, 175, 187, 0.88);
+    padding-left: 40px;
+}
+
+input[type=search]:focus {
+    background-color: #BAD4FF;
 }
 
 /* Liste discussion contient toutes les conversations */
-.boxListeDiscussion
-{
-    
-    border-top: solid gray;
-    width: 100%;
-    height: 100%;
+.allChat {
+    display: flex;
+
+}
+.ChatList {
+    display: flex;
+    flex-direction: column;
 }
 
-.liste
-{
-    list-style: none;
+.msgList{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    margin: 1rem;
+    width: 100%;
+}
+
+.chat  {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    margin-left: 2px;
     padding: 1rem;
-    background-color: white;
-    width: 100%;
-    height: 100%;
+    border: 1px solid black;
+    width: auto;
+    background-color: #d6515e;
 
 }
 
-/* HISTORIQUE DES CONVERSATIONS */
+.AddMsg {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.textarea {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    height: 5rem;
+}
+.box {
+    margin-left: 2rem;
+    padding: 1rem;
+    width: 10rem;
+}
 
-.boxMessage
-{
-    float: right;
-    width: 65%;
-    height: 550px; overflow-y: scroll;
+.Msg {
+    display: flex;
+    min-width: 30%;
+    max-width: 80%;
+
+
+    margin: 5px;
+    border: 1px solid black;
+    background-color: #78A5FF;
 }
 
 

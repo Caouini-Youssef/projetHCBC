@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="projethcbc" uploadOnCheckin="bb25fe45-10bf-4ada-a9de-431f512933ac">
+  <component name="PublishConfigData" serverName="projethcbc" uploadOnCheckin="f7cf12c1-1ec5-4465-84a0-99e2b029a23f">
     <serverData>
       <paths name="projethcbc">
         <serverdata>
@@ -10,6 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="groupehcbc" />
+    <option name="myUploadOnCheckinName" value="projethcbc" />
   </component>
 </project>
