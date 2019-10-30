@@ -46,8 +46,8 @@
 <section id="corps">
     <div class="presentation">
 
-        <form class="search">
-            <input placeholder="Rechercher" type="search">
+        <form class="searchBar" >
+            <inputplaceholder="Rechercher" type="search">
         </form>
 
         <label>
