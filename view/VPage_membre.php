@@ -5,6 +5,7 @@
         die;
     }
     $function=new Vfunction();
+    $chat = new CMessage();
     $function->start_page('Bienvenue !', '../css/index.css');
 ?>
 
@@ -18,7 +19,7 @@
             <li><a href="#"><?php echo $nom ?></a>
                 <ul>
                     <li><a href="#">Profil</a></li>
-                    <li><a href="#">Quitter</a></li>
+                    <li><a href="http://groupehcbc.alwaysdata.net/connexion/logout">Quitter</a></li>
                 </ul>
             </li>
         </ul>
@@ -41,17 +42,28 @@
 </section>
 
 <section id="corps">
-    <div class="presentation">
 
-        <form class="searchBar" >
-            <inputplaceholder="Rechercher" type="search">
-        </form>
-
-        <label>
-            <select class="liste" size="3">
-                <?php afficherListeDiscussions(); ?>
-            </select>
-        </label>
+    <div class="boxBarRecherche">
+        <h4>Liste des conversations</h4>
+        <input placeholder="Rechercher" type="search">
+    </div>
+    <form action="http://groupehcbc.alwaysdata.net/discussion/new_chat" method="post">
+        <input type="text" name="nom" placeholder="NOM"/> </br>
+        <input type="number" name="msgmax" placeholder="MESSAGES MAX"/> </br>
+        <input class="box" value='Créer' type="submit"/> </br>
+        <input class="box" type="hidden" name="discu" value="mailer" />
+    </form>
+    <div class="allChat">
+        <section class="ChatList">
+            <?php $chat->showChat(); ?>
+        </section>
+        <section class="msgList">
+            <?php $chat->showMessage(); ?>
+            <form class="AddMsg" action="http://groupehcbc.alwaysdata.net/discussion/new_mgs" method="post">
+                <textarea class="textarea" type="text" name="message" placeholder=" NOUVEAU MESSAGE "> </textarea><br />
+                <input type="submit" class="box" value="Envoyer"/> </br>
+            </form>
+        </section>
     </div>
 </section>
 

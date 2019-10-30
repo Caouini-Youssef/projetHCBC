@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     class Index {
 
@@ -8,7 +7,7 @@
         public function getUrl () {
             $url = '';
             if (isset($_GET['url'])) {
-                $url = explode ('/', $_GET['url']);
+                $url = explode('/', $_GET['url']);
             }
             return $url;
         }
@@ -26,6 +25,9 @@
             #inscription
             elseif ($url[0] == 'inscription') {
                 include 'controllers/CInscription.php';
+            }
+            elseif ($url[0] == 'discussion') {
+                include 'controllers/CMessage.php';
             }
             else echo '<h1> ERREUR 404 </h1>';
         }

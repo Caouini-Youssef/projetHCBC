@@ -1,0 +1,87 @@
+/* barre du haut de page */
+header
+{
+    background: linear-gradient(90deg,#8A2E8F 25%, #C2C1C2);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    margin-top: -0.5rem;
+    border-color: linear-gradient(90deg,#black 25%, #C2C1C2);
+    border-bottom: 2rem;
+}
+
+/* logo FreeNote de la barre du haut de page */
+header a img
+{
+    margin-left: 2rem;
+    height: 120px;
+    width: 270px;
+}
+
+/* ligne horizontale en dessous du header */
+hr
+{
+    margin: 0 -2rem;
+}
+
+/* corps de la page */
+body
+{
+    background: linear-gradient(180deg,#211F21 35%, #A290A3);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* titre connexion de la barre du haut de page */
+h1
+{
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    margin-right: 4rem;
+    font-size: 3rem;
+}
+
+/* formulaire de connexion */
+.formulaire
+{
+    margin-top: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* style des input du formulaire */
+.box
+{
+    /* css boutons */
+    margin: 0.15rem;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #953D95;
+    border: solid;
+    border-color: #D669D6;
+    outline: none;
+    /* css texte */
+    text-align: center;
+    color : black;
+    font-size: 1rem;
+    font-family: 'Varela Round', sans-serif;
+}
+
+/* styles des input du formulaire lors du clic */
+.box:focus
+{
+    /* css boutons */
+    background-color: #B352B3;
+    border-color: #933793;
+}
+
+/* css des placeholder du formulaire */
+input::placeholder
+{
+    color: black;
+}

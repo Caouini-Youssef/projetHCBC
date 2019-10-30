@@ -12,6 +12,10 @@ class CConnexion {
         include ('base/MConnexion.php');
     }
 
+    public function VLogout() {
+        include ('view/VLogout.php');
+    }
+
     public function route () {
         $route = new Index();
         $url = $route->getUrl();
@@ -20,6 +24,9 @@ class CConnexion {
         }
         elseif ($url[1] == 'processing') {
             $this->Mconnect();
+        }
+        elseif ($url[1] == 'logout') {
+            $this->VLogout();
         }
         else echo '<h1> ERREUR 404 </h1>';
     }

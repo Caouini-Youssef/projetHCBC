@@ -12,6 +12,7 @@ class CDefault {
         include ('view/VPage_membre.php') ;
     }
 
+
     public function route() {
         $route = new Index();
         $url = $route->getUrl();
