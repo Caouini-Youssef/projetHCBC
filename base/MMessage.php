@@ -1,6 +1,7 @@
 <?php
     class MMessage
     {
+
         /** Affiche la liste des discussions */
         public function ShowDiscussions()
         {
@@ -10,12 +11,13 @@
             $allmsg = $dbLink->query('SELECT * FROM discussion');
             while ($msg = $allmsg->fetch()) {
                 ?>
-                <a href="" class="chat"> <?php echo $msg['nom']; ?>( Messages max:
+                <a href="http://groupehcbc.alwaysdata.net/discussion/chat/<?php echo $msg['id_chat'] ?>" class="chat"> <?php echo $msg['nom']; ?>( Messages max:
                 <?php echo $msg['msgmax'].' ) </br>'; ?> </a>
                 <?php
             }
         }
 
+        /** Créer une nouvelle discussion dans la base de données */
         public function newDiscussion ($nom, $msgmax) {
             $bd = new MdbConnect();
             $today = date('Y-m-d');
@@ -24,32 +26,35 @@
             $query->execute(array($today, $nom, $msgmax));
         }
 
-        public function newMessage ($message) {
-            $bd = new MdbConnect();
-            $today = date('Y-m-d');
-            $pseudo = $_SESSION['nom'];
-            $dbLink = $bd->dbConnect();
-            $id_chat = $dbLink->query('SELECT id_chat FROM message M JOIN discussion D ON id_chat.M=id_chat.D WHERE id_chat.M=id_chat.D');
-
-            $query = $dbLink->prepare('INSERT INTO message (date, texte, createur, id_chat) VALUES (?, ?, ?, ?)');
-            $query->execute(array($today, $message, $pseudo, $id_chat));
+        public function GetURL($x) {
+            $url = '';
+            if (isset($_GET['url'])) {
+                $url = explode('/', $_GET['url']);
+            }
+            return $url[$x];
         }
 
-
-        /** Affiche les messages */
+        /** Récupère les messages depuis la base de données */
         public function ShowMessages()
         {
             $bd = new MdbConnect();
             $dbLink = $bd->dbConnect();
-            $allmsg = $dbLink->query('SELECT * FROM message');
-            while ($msg = $allmsg->fetch()) {
-                ?>
-                <b class="Msg"> <?php echo $msg['createur']; ?> :
-                    <?php echo $msg['texte'] . '</br>'; ?> </b>
-                <?php
+            $id_chat= $this->GetURL(2);
+            $_SESSION['idChat'] = $id_chat;
+            $allMsg = $dbLink->query ('SELECT * FROM message WHERE message.id_chat="'. $id_chat . '"');
+            return $allMsg;
+        }
+
+        /** Créer un nouveau message */
+        public function newMessage ($message, $id_chat) {
+            $bd = new MdbConnect();
+            if (empty(!$message)) {
+                $today = date('Y-m-d');
+                $pseudo = $_SESSION['nom'];
+                $dbLink = $bd->dbConnect();
+                $query = $dbLink->prepare('INSERT INTO message (date, texte, createur, id_chat) VALUES (?, ?, ?, ?)');
+                $query->execute(array($today, $message, $pseudo, $id_chat));
             }
+            else echo 'Message non valide !';
         }
     }
-
-    $chat=new MMessage();
-    $chat->newMessage($_POST['SafeMessage']);

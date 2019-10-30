@@ -18,24 +18,29 @@ class CMessage {
         else echo 'Veuillez entrer un nom valide !';
     }
 
-    public function showChat() {
-        $bdd=new MMessage();
-        $bdd->showDiscussions();
-    }
-
-    public function newMessage() {
-        if(isset($_POST['message']) AND !empty($_POST['message'])) {
-            $SafeMessage = htmlspecialchars($_POST['message']);
-            include 'base/MMessage.php';
-            echo $SafeMessage;
-            echo '<meta http-equiv="refresh" content="2;http://groupehcbc.alwaysdata.net/home/connected" />';
+    public function newMessage()
+    {
+        $id_chat = $_SESSION['idChat'];
+        $action = $_POST['action'];
+        if ($action == 'msg') {
+           if (isset($_POST['message']) AND !empty($_POST['message'])) {
+                $SafeMessage = htmlspecialchars($_POST['message']);
+                $bdd = new MMessage();
+                $bdd->newMessage($SafeMessage, $id_chat);
+                echo '<meta http-equiv="refresh" content="0;http://groupehcbc.alwaysdata.net/discussion/chat/'. $_SESSION['idChat'] .'"/>';
+           } else echo 'Veuillez entrer votre message !';
         }
-        else echo 'Veuillez entrer votre message !';
     }
 
-    public function showMessage() {
-        $bdd=new MMessage();
-        $bdd->showMessages();
+    public function showMsg() {
+        $bdd = new MMessage();
+        $allMsg = $bdd->ShowMessages();
+        while ($msg = $allMsg->fetch()) {
+            ?>
+            <b class="Msg"> <?php echo $msg['createur']; ?> :
+                <?php echo $msg['texte'] . '</br>'; ?> </b>
+            <?php
+        }
     }
 
     public function route () {
@@ -46,6 +51,9 @@ class CMessage {
         }
         elseif ($url[1] == 'new_chat') {
             $this->newChat();
+        }
+        elseif ($url[1] == 'chat') {
+            include 'view/VChat.php';
         }
         else echo '<h1> ERREUR 404 </h1>';
     }

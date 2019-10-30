@@ -14,7 +14,6 @@
 
         public function redirect() {
             $url = $this->getUrl();
-            #home
             if ($url[0] == 'home' || $url[0] == '') {
                 include 'controllers/CDefault.php';
             }

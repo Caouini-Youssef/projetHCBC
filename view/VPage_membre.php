@@ -5,7 +5,7 @@
         die;
     }
     $function=new Vfunction();
-    $chat = new CMessage();
+    $bdd = new MMessage();
     $function->start_page('Bienvenue !', '../css/index.css');
 ?>
 
@@ -55,14 +55,7 @@
     </form>
     <div class="allChat">
         <section class="ChatList">
-            <?php $chat->showChat(); ?>
-        </section>
-        <section class="msgList">
-            <?php $chat->showMessage(); ?>
-            <form class="AddMsg" action="http://groupehcbc.alwaysdata.net/discussion/new_mgs" method="post">
-                <textarea class="textarea" type="text" name="message" placeholder=" NOUVEAU MESSAGE "> </textarea><br />
-                <input type="submit" class="box" value="Envoyer"/> </br>
-            </form>
+            <?php $bdd->showDiscussions(); ?>
         </section>
     </div>
 </section>
