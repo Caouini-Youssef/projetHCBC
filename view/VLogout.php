@@ -1,6 +1,16 @@
 <?php
     $function = new Vfunction();
-    $function->start_page('Logout', '../css/index.php');
+    $function->start_page('Logout', '../css/index.css');
     session_destroy();
-    echo 'Deconnecté !';
-    echo '<meta http-equiv="refresh" content="2;http://groupehcbc.alwaysdata.net/" />';
+    ?>
+    <header>
+        <div class="boxFreeNote">
+            <h1> <?php echo 'Deconnecté !'; ?></h1>
+        </div>
+        <div class="boxMenu">
+        </div>
+    </header>
+    <?php echo '<meta http-equiv="refresh" content="1;http://groupehcbc.alwaysdata.net/" />'; ?>
+<?php
+$function->end_page();
+

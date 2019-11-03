@@ -1,8 +1,6 @@
 <?php
 class CDefault {
 
-    public function __construct(){}
-
     // afficher formulaire
     public function home() {
         include ('view/Vdefault.php');
@@ -10,6 +8,19 @@ class CDefault {
 
     public function connect() {
         include ('view/VPage_membre.php') ;
+    }
+
+    public function showUser() {
+        $bdd=new MAdmin();
+        $query = $bdd->showUser();
+        while ($user= $query->fetch())
+        {
+            ?>
+            <div class="chat">
+            <?php echo $user['nom'].' - ';
+            echo $user['mail'].'</br>'; ?> </div>
+            <?php
+        }
     }
 
 
@@ -21,6 +32,9 @@ class CDefault {
         }
         elseif ($url[1] == 'connected') {
             $this->connect();
+        }
+        elseif ($url[1] == 'admin') {
+            include ('view/VAdmin.php');
         }
         else echo '<h1> ERREUR 404 </h1>';
     }

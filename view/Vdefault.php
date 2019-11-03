@@ -1,24 +1,23 @@
 <?php
     $function = new Vfunction ();
     $function->start_page('Accueil', '../css/index.css');
+    $show = new MMessage();
 ?>
 
     <header>
         <div class="boxFreeNote">
             <?php $function->home() ?>
         </div>
-        <div class="boxMenu">
-            <nav>
-                <ul>
-                    <li>
-                        <a class="boxci" href="http://groupehcbc.alwaysdata.net/connexion"> Connexion </a>
-                    </li>
-                    <li>
-                        <a class="boxci" href="http://groupehcbc.alwaysdata.net/inscription"> Inscription </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="boxMenu">
+            <ul>
+                <li>
+                    <a class="boxci" href="http://groupehcbc.alwaysdata.net/connexion"> Connexion </a>
+                </li>
+                <li>
+                    <a class="boxci" href="http://groupehcbc.alwaysdata.net/inscription"> Inscription </a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <section id="conteneur_presentation">
         <div class="presentation">
@@ -34,32 +33,21 @@
         </div>
     </section>
 
-    <section class="corps">
-        <div class="boxRecherche">
-            <div class="boxBarRecherche">
-                <h4>Liste des conversations</h4>
-                <input placeholder="Rechercher" type="search">
-            </div>
+    <section id="corps">
 
-            <div class="boxListeDiscussion">
-                <label>
-                    <select class="liste" size="3">
-                        <?php #afficherListeDiscussions(); ?>
-                    </select>
-                </label>
-            </div>
-            <div class="boxListeMessage">
-                <label>
-                    <select class="liste" size="3">
-                        <?php #afficherListeMessages(); ?>
-                    </select>
-                </label>
-            </div>
+        <div class="boxBarRecherche">
+            <h4>Liste des conversations</h4>
         </div>
-        <div class = "boxMessage">
-            <p>Historique de discussion</p>
+        <p> Les règles sont simples : </br> - Vous ne pouvez modifier un message qu'une fois ! </br>
+            - Vous pouvez clore un message a tout moment. </br>
+            - Les discussions ont un nombre de messages maximum.
+        </p>
+        <div class="allChat">
+            <section class="ChatList">
+                <?php $show->showDiscussions(); ?>
+            </section>
         </div>
-    </section>;
+    </section>
 
 <?php
     $function->end_page();

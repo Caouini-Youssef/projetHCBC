@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" showDialogOnRemoteDnD="false">
+  <component name="PublishConfigData" serverName="projethcbc" uploadOnCheckin="f7cf12c1-1ec5-4465-84a0-99e2b029a23f">
     <serverData>
-      <paths name="alwaysdata">
+      <paths name="projethcbc">
         <serverdata>
           <mappings>
             <mapping deploy="/www/" local="$PROJECT_DIR$" web="/" />
@@ -10,5 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="projethcbc" />
   </component>
 </project>

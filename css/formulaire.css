@@ -1,30 +1,63 @@
 header
 {
+    opacity: 1;
     background-color: #375280;
     display: flex;
+    height: 100px;
     justify-content: space-between;
-    align-items: center;
 }
 
-header h1
+.boxFreeNote
 {
-    margin: auto;
-    padding-right: 11rem;
+    width: 200px;
+    margin-left: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-header a img
-{
-    height: 80px;
+.boxFreeNote img{
     width: 180px;
-    float: left;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
-h1
+boxFreeNote h2{
+    margin-left: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+header a:hover {
+    color: #45B0FF;
+}
+
+.boxMenu
 {
     color: white;
-    text-align: center;
-    font-family: Arial, sans-serif;
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    text-decoration: none;
+
 }
+
+.boxMenu h1{
+    margin-right: 5rem;
+    margin-left: 29rem;
+}
+
 
 body
 {

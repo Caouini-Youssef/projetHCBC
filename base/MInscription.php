@@ -13,7 +13,7 @@ class MInscription
         }
         $posts = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($posts != NULL or !filter_var($posts, FILTER_VALIDATE_EMAIL)) {
+        if ($posts != NULL or filter_var($posts, FILTER_VALIDATE_EMAIL)) {
             echo 'E-Mail déjà utilisé ou incorrect !';
             echo '<meta http-equiv="refresh" content="3;URL=http://groupehcbc.alwaysdata.net/inscription" />';
             exit;

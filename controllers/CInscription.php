@@ -16,9 +16,15 @@
                     echo '<meta http-equiv="refresh" content="3;URL=http://groupehcbc.alwaysdata.net/inscription" />';
                     exit;
                 }
+                if ($nom == 'ADMIN') {
+                    echo 'Choississez un autre pseudo !';
+                    echo '<meta http-equiv="refresh" content="3;URL=http://groupehcbc.alwaysdata.net/inscription" />';
+                    die;
+                }
+                $nomSafe = str_replace(' ', '_', $nom);
 
                 $connect = new MInscription();
-                $connect->inscription(date('Y-m-d'), $civ, $mail, $mdp, $nom);
+                $connect->inscription(date('Y-m-d'), $civ, $mail, $mdp, $nomSafe);
 
                 $message = 'Bonjour ' . $nom . ', bienvenue chez FreeNote !' . PHP_EOL .
                     'Voici vos identifiants d\'inscription :' . PHP_EOL . PHP_EOL .

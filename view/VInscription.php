@@ -3,10 +3,14 @@ $function = new Vfunction ();
 $function->start_page('Accueil', '../css/formulaire.css');
 ?>
 
-<header>
-    <?php $function->home(); ?>
-    <h1> INSCRIPTION </h1>
-</header>
+    <header>
+        <div class="boxFreeNote">
+            <?php $function->home(); ?>
+        </div>
+        <div class="boxMenu">
+            <h1> INSCRIPTION </h1>
+        </div>
+    </header>
 
 
 <form class="formulaire" action="http://groupehcbc.alwaysdata.net/inscription/processing" method="post">

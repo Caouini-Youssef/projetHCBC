@@ -9,14 +9,18 @@
     $function->start_page('Bienvenue !', '../css/index.css');
 ?>
 
-<header>
-    <div class="boxFreeNote">
-        <h1> Salut <?php echo $_SESSION['nom']; ?> !</h1>
-    </div>
-    <div class="boxMenu">
-        <li><a href="http://groupehcbc.alwaysdata.net/connexion/logout">Se déconnecter</a></li>
-    </div>
-</header>
+    <header>
+        <div class="boxFreeNote">
+            <h1> Salut <?php echo $_SESSION['nom']; ?> !</h1>
+        </div>
+        <div class="boxMenu">
+            <?php if($_SESSION['nom'] == 'ADMIN') {
+                echo '<h2><a href="http://groupehcbc.alwaysdata.net/home/admin">Liste USER</a></h2>';
+            }?>
+            <h2><a href="http://groupehcbc.alwaysdata.net/connexion/logout">Se déconnecter</a></h2>
+            <h2><a href="http://groupehcbc.alwaysdata.net/connexion/recup">Changer de MDP</a> </h2>
+        </div>
+    </header>
 
 
 <section id="conteneur_presentation">
@@ -37,18 +41,22 @@
 
     <div class="boxBarRecherche">
         <h4>Liste des conversations</h4>
-        <input placeholder="Rechercher" type="search">
     </div>
-    <form action="http://groupehcbc.alwaysdata.net/discussion/new_chat" method="post">
-        <input type="text" name="nom" placeholder="NOM"/> </br>
-        <input type="number" name="msgmax" placeholder="MESSAGES MAX"/> </br>
+    <form class="newConvo" action="http://groupehcbc.alwaysdata.net/discussion/new_chat" method="post">
+        <input class="box" type="text" name="nom" placeholder="NOM"/> </br>
+        <input class="box" type="number" min="0" max="1000" name="msgmax" placeholder="MESSAGES MAX"/> </br>
         <input class="box" value='Créer' type="submit"/> </br>
         <input class="box" type="hidden" name="discu" value="mailer" />
     </form>
     <div class="allChat">
+
         <section class="ChatList">
             <?php $bdd->showDiscussions(); ?>
         </section>
+        <p> Les règles sont simples : </br> - Vous ne pouvez modifier un message qu'une fois ! </br>
+            - Vous pouvez créer un nouveau message a tout moment. </br>
+            - Les discussions ont un nombre de messages maximum.
+        </p>
     </div>
 </section>
 
